@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "462304959449",
+    "project_id": "banquillosl",
+    "storage_bucket": "banquillosl.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462304959449:android:451e4751f61c9076a817c8",
+        "android_client_info": {
+          "package_name": "com.example.banquillosl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462304959449-i0ggeefkr0eqb2c9ukghkhns8tda0e59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0YgLtEC12omFR9QE93sHbekJpZi_X0fg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462304959449-i0ggeefkr0eqb2c9ukghkhns8tda0e59.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

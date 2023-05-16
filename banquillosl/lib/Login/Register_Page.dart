@@ -37,15 +37,11 @@ class _RegisterPageState extends State<RegisterPage> {
     };
 
     try {
-      if (PasswordController.text == ConfrimController.text) {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: EmailController.text, password: PasswordController.text);
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: EmailController.text, password: PasswordController.text);
 
-        db.collection("users").add(user).then((DocumentReference doc) =>
-            print('DocumentSnapshot added with ID: ${doc.id}'));
-      } else {
-        ErrorLogin('Las contraseñas no coinciden');
-      }
+      db.collection("users").add(user).then((DocumentReference doc) =>
+          print('DocumentSnapshot added with ID: ${doc.id}'));
 
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
@@ -86,6 +82,34 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
+  bool _obscureText = true;
+  Widget CampoContrasena() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0),
+      child: TextField(
+        controller: PasswordController,
+        style: TextStyle(color: Colors.white),
+        obscureText: _obscureText,
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          hintText: "Contraseña",
+          hintStyle: TextStyle(color: Color.fromRGBO(161, 161, 161, 100)),
+          fillColor: Color.fromRGBO(37, 37, 37, 100),
+          suffixIcon: IconButton(
+            onPressed: () {
+              setState(() {
+                _obscureText = !_obscureText;
+              });
+            },
+            icon: Icon(_obscureText ? Icons.visibility_off : Icons.visibility),
+            color: Color.fromRGBO(161, 161, 161, 100),
+          ),
+          filled: true,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -106,8 +130,7 @@ class _RegisterPageState extends State<RegisterPage> {
               CrearCuentaText(),
               CampoUsuario(UsuarioController),
               CampoEmail(EmailController),
-              CampoContrasena(PasswordController),
-              CampoComprobarContrasena(ConfrimController),
+              CampoContrasena(),
               OlvidadoContrasena(context),
               BotonCrear(),
               CrearCuenta(context, widget.onTap),
@@ -135,42 +158,6 @@ Widget CampoEmail(controller) {
       textAlign: TextAlign.center,
       decoration: InputDecoration(
         hintText: "Email",
-        hintStyle: TextStyle(color: Color.fromRGBO(161, 161, 161, 100)),
-        fillColor: Color.fromRGBO(37, 37, 37, 100),
-        filled: true,
-      ),
-    ),
-  );
-}
-
-Widget CampoContrasena(controller) {
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0),
-    child: TextField(
-      controller: controller,
-      style: TextStyle(color: Colors.white),
-      obscureText: true,
-      textAlign: TextAlign.center,
-      decoration: InputDecoration(
-        hintText: "Contraseña",
-        hintStyle: TextStyle(color: Color.fromRGBO(161, 161, 161, 100)),
-        fillColor: Color.fromRGBO(37, 37, 37, 100),
-        filled: true,
-      ),
-    ),
-  );
-}
-
-Widget CampoComprobarContrasena(controller) {
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0),
-    child: TextField(
-      controller: controller,
-      style: TextStyle(color: Colors.white),
-      obscureText: true,
-      textAlign: TextAlign.center,
-      decoration: InputDecoration(
-        hintText: "Comprobar Contraseña",
         hintStyle: TextStyle(color: Color.fromRGBO(161, 161, 161, 100)),
         fillColor: Color.fromRGBO(37, 37, 37, 100),
         filled: true,

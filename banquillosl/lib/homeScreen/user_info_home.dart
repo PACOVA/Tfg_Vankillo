@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 //<===||::r::u::b::e::n::>
 class UserInfoHomePage extends StatefulWidget {
@@ -33,6 +34,44 @@ class _UserInfoHomePageState extends State<UserInfoHomePage> {
             },
           ),
         );
+  }
+
+  Future<String> obtenerFechaHoraActual() async {
+    // Inicializar el formato de fecha y hora para el idioma español
+    await initializeDateFormatting('es');
+
+    var ahora = DateTime.now();
+
+    await initializeDateFormatting('es');
+
+    // Crear un objeto DateFormat para formatear la fecha y la hora en español
+    var format = DateFormat.yMEd('es').add_jms();
+
+    // Formatear la fecha y la hora actual en español
+    var fechaHoraFormateada = format.format(ahora);
+
+    return fechaHoraFormateada;
+  }
+
+  Widget Fecha() {
+    return FutureBuilder<String>(
+      future: obtenerFechaHoraActual(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return Text(
+            ' ${snapshot.data}',
+            style: TextStyle(color: Colors.white),
+          );
+        } else if (snapshot.hasError) {
+          return Text(
+            'Error al obtener la fecha y hora',
+            style: TextStyle(color: Colors.white),
+          );
+        } else {
+          return CircularProgressIndicator();
+        }
+      },
+    );
   }
 
   @override
@@ -91,10 +130,7 @@ class _UserInfoHomePageState extends State<UserInfoHomePage> {
                         size: 15,
                         color: Colors.amber[900],
                       ),
-                      Text(
-                        DateFormat.yMEd().add_jms().format(DateTime.now()),
-                        style: TextStyle(color: Colors.white),
-                      ),
+                      Fecha()
                     ],
                   )
                 ],

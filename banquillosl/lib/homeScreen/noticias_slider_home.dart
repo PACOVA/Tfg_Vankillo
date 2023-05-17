@@ -4,9 +4,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 //<===||::r::u::b::e::n::>
-class NoticiasHomeSlider extends StatelessWidget {
+class NoticiasHomeSlider extends StatefulWidget {
   const NoticiasHomeSlider({super.key});
 
+  @override
+  State<NoticiasHomeSlider> createState() => _NoticiasHomeSliderState();
+}
+
+class _NoticiasHomeSliderState extends State<NoticiasHomeSlider> {
   @override
   Widget build(BuildContext context) {
     final List<String> imgList = [

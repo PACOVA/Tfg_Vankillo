@@ -34,7 +34,10 @@ class GetUserName extends StatelessWidget {
               ],
             );
           }
-          return Text('Loading ...');
+          return Text(
+            'Cargando ...',
+            style: TextStyle(fontSize: 26, color: Colors.white),
+          );
         }));
   }
 }

@@ -2,11 +2,10 @@
 
 import 'package:banquillosl/Ligas/LigasHomeScreen.dart';
 import 'package:banquillosl/homeScreen/home.dart';
+import 'package:banquillosl/perfilEntrenador/perfir_entrenador_screen_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
-
-import 'PerfilEntrenador.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,7 +16,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _paginaActual = 0;
-  List<Widget> _pagina = [Home(), PerfilEntrenador(), LigasHomeScreen()];
+  List<Widget> _pagina = [
+    Home(),
+    LigasHomeScreen(),
+    PerfilEntrenador(),
+  ];
   void CerrarSecion() async {
     FirebaseAuth.instance.signOut();
   }
@@ -26,7 +29,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'BanquilloHome',
+      title: 'Banquillo',
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
@@ -47,7 +50,8 @@ class _HomePageState extends State<HomePage> {
           currentIndex: _paginaActual,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Ligas"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.account_tree_rounded), label: "Ligas"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.supervised_user_circle), label: "User"),
           ],

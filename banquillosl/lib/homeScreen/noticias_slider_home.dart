@@ -3,7 +3,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-//<===||::r::u::b::e::n::>
 class NoticiasHomeSlider extends StatefulWidget {
   const NoticiasHomeSlider({super.key});
 
@@ -53,7 +52,7 @@ class _NoticiasHomeSliderState extends State<NoticiasHomeSlider> {
                               child: Column(
                                 children: [
                                   Text(
-                                    'No. ${imgList.indexOf(item)} Title', //${Article.title}
+                                    'No. ${imgList.indexOf(item)} Title',
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
@@ -61,7 +60,7 @@ class _NoticiasHomeSliderState extends State<NoticiasHomeSlider> {
                                     ),
                                   ),
                                   Text(
-                                    'No. ${imgList.indexOf(item)} subTitle', //${Article.subTitle}
+                                    'No. ${imgList.indexOf(item)} subTitle',
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 16.0,

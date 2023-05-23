@@ -3,7 +3,7 @@ import 'package:banquillosl/Login/Register_Page.dart';
 import 'package:flutter/material.dart';
 
 class LoginOrRegisterPage extends StatefulWidget {
-  const LoginOrRegisterPage({super.key});
+  const LoginOrRegisterPage({Key? key}) : super(key: key);
 
   @override
   State<LoginOrRegisterPage> createState() => _LoginOrRegisterPageState();

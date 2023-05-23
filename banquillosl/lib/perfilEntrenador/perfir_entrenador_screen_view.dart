@@ -83,14 +83,6 @@ class _PerfilEntrenadorState extends State<PerfilEntrenador>
                   ),
                 ),
               ),
-              Container(
-                  height: 50,
-                  child: Center(
-                    child: Text(
-                      '¡VankilloSL!, Ruben OreroLevy y toh my nabo',
-                      style: TextStyle(fontSize: 13),
-                    ),
-                  )),
             ],
           ),
         ),

@@ -33,15 +33,16 @@ class _RegisterPageState extends State<RegisterPage> {
 
     final user = <String, dynamic>{
       "Email": EmailController.text,
-      "Usuario": UsuarioController.text
+      "Usuario": UsuarioController.text,
+      "tipo": 'usuario'
     };
 
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: EmailController.text, password: PasswordController.text);
+      final authResult = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: EmailController.text, password: PasswordController.text);
 
-      db.collection("users").add(user).then((DocumentReference doc) =>
-          print('DocumentSnapshot added with ID: ${doc.id}'));
+      db.collection("users").doc(authResult.user!.uid).set(user);
 
       Navigator.pop(context);
     } on FirebaseAuthException catch (e) {

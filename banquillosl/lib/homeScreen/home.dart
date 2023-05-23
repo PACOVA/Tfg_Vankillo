@@ -1,4 +1,3 @@
-//<===||::r::u::b::e::n::>
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:banquillosl/homeScreen/user_info_home.dart';
@@ -12,14 +11,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-        /* decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('backGround.png'),
-          fit: BoxFit.cover,
-        ),
-      ),*/
-        Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Container(
           color: Colors.black87,
@@ -34,15 +26,6 @@ class Home extends StatelessWidget {
                   child: NoticiasHomeSlider(),
                 ),
                 ListaNoticiasHome(),
-                //NoticiasWidget()
-                //SearchBarKiri(),
-                //CarousellArticleSlider(),
-                //DropdownTask(),
-                /*
-                Container(
-                    margin: EdgeInsets.only(top: 6),
-                    child: WeeklyTaskHomeScreen())
-                    */
               ],
             ),
           ),

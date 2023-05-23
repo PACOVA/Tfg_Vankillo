@@ -5,7 +5,6 @@ import 'package:lottie/lottie.dart';
 
 import 'lista_noticias.dart';
 
-//<===||::r::u::b::e::n::>
 class ListaNoticiasHome extends StatefulWidget {
   const ListaNoticiasHome({super.key});
 
@@ -40,12 +39,6 @@ class _ListaNoticiasHomeState extends State<ListaNoticiasHome> {
                           fontSize: 20,
                           color: Colors.amber[900]),
                     ),
-                    /*Container(
-                      width: 50,
-                      height: 50,
-                      child: Lottie.network(
-                          'https://assets1.lottiefiles.com/packages/lf20_rEFATf.json'),
-                    ),*/
                   ],
                 ),
               ),

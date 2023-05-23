@@ -1,7 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
+import 'package:banquillosl/Ligas/ListaPartidos.dart';
 import 'package:banquillosl/Ligas/horizontal_calendario.dart';
-import 'package:banquillosl/Ligas/lista_partidos.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -65,7 +65,7 @@ class _LigasHomeScreenState extends State<LigasHomeScreen> {
                 Container(
                   height: 900,
                   width: double.infinity,
-                  child: PartidosWidget(),
+                  child: ListaPartidos(),
                 )
               ],
             ),

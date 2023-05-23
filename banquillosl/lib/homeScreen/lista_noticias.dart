@@ -76,8 +76,6 @@ class _NoticiasWidgetState extends State<NoticiasWidget> {
         },
       ),
     );
-
-//Icon(.check_circle_outline_rounded)
   }
 
   Widget listTile(int index) {

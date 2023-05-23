@@ -7,7 +7,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
-//<===||::r::u::b::e::n::>
 class UserInfoHomePage extends StatefulWidget {
   const UserInfoHomePage({super.key});
 
@@ -18,13 +17,13 @@ class UserInfoHomePage extends StatefulWidget {
 class _UserInfoHomePageState extends State<UserInfoHomePage> {
   final db = FirebaseFirestore.instance;
 
-  final user = FirebaseAuth.instance.currentUser!;
+  final user = FirebaseAuth.instance.currentUser;
   List<String> docId = [];
 
   Future GetId() async {
     await db
         .collection('users')
-        .where('Email', isEqualTo: user.email.toString())
+        .where('Email', isEqualTo: user?.email.toString())
         .get()
         .then(
           (snapshot) => snapshot.docs.forEach(

@@ -6,9 +6,14 @@ import 'package:lottie/lottie.dart';
 
 import 'equipo_alineacion_lista.dart';
 
-class EntrenadorEquipoView extends StatelessWidget {
+class EntrenadorEquipoView extends StatefulWidget {
   const EntrenadorEquipoView({super.key});
 
+  @override
+  State<EntrenadorEquipoView> createState() => _EntrenadorEquipoViewState();
+}
+
+class _EntrenadorEquipoViewState extends State<EntrenadorEquipoView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

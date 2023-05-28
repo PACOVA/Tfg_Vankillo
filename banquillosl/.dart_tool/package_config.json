@@ -20,6 +20,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "auto_size_text",
+      "rootUri": "file:///C:/Users/VSPC-LIGTPOLELITEV3/AppData/Local/Pub/Cache/hosted/pub.dev/auto_size_text-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///C:/Users/VSPC-LIGTPOLELITEV3/AppData/Local/Pub/Cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
@@ -236,6 +242,24 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "qr",
+      "rootUri": "file:///C:/Users/VSPC-LIGTPOLELITEV3/AppData/Local/Pub/Cache/hosted/pub.dev/qr-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "qr_code_scanner",
+      "rootUri": "file:///C:/Users/VSPC-LIGTPOLELITEV3/AppData/Local/Pub/Cache/hosted/pub.dev/qr_code_scanner-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "qr_flutter",
+      "rootUri": "file:///C:/Users/VSPC-LIGTPOLELITEV3/AppData/Local/Pub/Cache/hosted/pub.dev/qr_flutter-4.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///D:/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -296,7 +320,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-05-19T11:14:44.754747Z",
+  "generated": "2023-05-26T19:19:54.009547Z",
   "generator": "pub",
   "generatorVersion": "3.1.0-81.0.dev"
 }

@@ -1,7 +1,9 @@
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, sort_child_properties_last, use_key_in_widget_constructors, library_private_types_in_public_api
+
+import 'package:banquillosl/perfilEntrenador/ingresar_usuario/IngresarJugador.dart';
 import 'package:flutter/material.dart';
 
 import '../homeScreen/user_info_home.dart';
-import '../perfilJugador/mi_usuario_jugador/perfil_usuario_view.dart';
 import 'equipo/equipo_tab.dart';
 
 class PerfilEntrenador extends StatefulWidget {
@@ -29,6 +31,7 @@ class _PerfilEntrenadorState extends State<PerfilEntrenador>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: double.infinity,
         color: Colors.black45,
         child: SafeArea(
           child: Column(
@@ -71,14 +74,11 @@ class _PerfilEntrenadorState extends State<PerfilEntrenador>
                   child: TabBarView(
                     controller: _tabController,
                     children: [
-                      // Contents of 'Mi perfil' tab
                       Container(
                         color: Colors.black54,
                         child: EntrenadorEquipoView(),
                       ),
-
-                      // Contents of 'Mi equipo' tab
-                      PerfilUsuarioView()
+                      IngresarJugador(),
                     ],
                   ),
                 ),

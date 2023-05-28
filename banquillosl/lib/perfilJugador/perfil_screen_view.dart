@@ -72,15 +72,12 @@ class _PerfilJugadorState extends State<PerfilJugador>
                   child: TabBarView(
                     controller: _tabController,
                     children: [
-                      // Contents of 'Mi perfil' tab
                       Container(
                         color: Colors.black54,
                         child: PerfilUsuarioView(),
                       ),
-
-                      // Contents of 'Mi equipo' tab
                       Center(
-                        child: Text('Mi equipo'),
+                        child: Text(''),
                       ),
                     ],
                   ),

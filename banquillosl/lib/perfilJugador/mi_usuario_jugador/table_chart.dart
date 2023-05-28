@@ -225,9 +225,7 @@ class _TablaAnaliticsMiUsuarioState extends State<TablaAnaliticsMiUsuario> {
                     .map((color) => color.withOpacity(0.3))
                     .toList(),
               ),
-            )
-            // ... (set the other properties of the bar here)
-            ),
+            )),
         LineChartBarData(
           spots: const [
             FlSpot(0, 2),

@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors, file_names, non_constant_identifier_names, use_build_context_synchronously, avoid_print, prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, file_names, non_constant_identifier_names, use_build_context_synchronously, avoid_print, prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
 import 'package:banquillosl/Login/NuevaContrasena.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -22,8 +23,13 @@ class _LoginPageState extends State<LoginPage> {
     showDialog(
       context: context,
       builder: (context) {
-        return const Center(
-          child: CircularProgressIndicator(),
+        return Center(
+          child: Container(
+            width: double.infinity,
+            height: 100,
+            child: Lottie.network(
+                'https://assets1.lottiefiles.com/packages/lf20_NRU0Ze.json'),
+          ),
         );
       },
     );
@@ -140,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
 
 Widget Titulo() {
   return Text(
-    "Vankillo SL",
+    "Bankillo SL",
     style: TextStyle(fontSize: 45, color: Colors.white),
   );
 }

@@ -38,7 +38,7 @@ class _LigasHomeScreenState extends State<LigasHomeScreen> {
                         Padding(
                           padding: const EdgeInsets.only(left: 70.0),
                           child: Text(
-                            'Ligas y partidos',
+                            'Partidos',
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,

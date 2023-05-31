@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, non_constant_identifier_names, prefer_final_fields, use_build_context_synchronously
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, non_constant_identifier_names, prefer_final_fields, use_build_context_synchronously, file_names
 
 import 'package:banquillosl/Ligas/LigasHomeScreen.dart';
 import 'package:banquillosl/Ligas/ListaLigas.dart';

@@ -1,10 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, sort_child_properties_last, use_key_in_widget_constructors, library_private_types_in_public_api
 
-import 'package:banquillosl/perfilUsuario/perfil_equipo_view.dart';
+import 'package:banquillosl/perfilUsuario/mi_usuario/UnirseEquipo.dart';
 import 'package:flutter/material.dart';
 
 import '../homeScreen/user_info_home.dart';
-import 'mi_usuario/perfil_usuario_view.dart';
 
 class PerfilUsuario extends StatefulWidget {
   @override
@@ -18,7 +17,7 @@ class _PerfilUsuarioState extends State<PerfilUsuario>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(length: 1, vsync: this);
   }
 
   @override
@@ -54,9 +53,8 @@ class _PerfilUsuarioState extends State<PerfilUsuario>
                     labelColor: Colors.amber[900],
                     controller: _tabController,
                     tabs: [
-                      Container(child: Tab(text: 'Mi perfil')),
                       Container(
-                        child: Tab(text: 'Mi equipo'),
+                        child: Tab(text: 'Unirse a un equipo'),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(10),
@@ -73,11 +71,7 @@ class _PerfilUsuarioState extends State<PerfilUsuario>
                   child: TabBarView(
                     controller: _tabController,
                     children: [
-                      Container(
-                        color: Colors.black54,
-                        child: PerfilUsuarioView(),
-                      ),
-                      Center(child: EscanerQR()),
+                      Container(color: Colors.black54, child: UnirseEquipo())
                     ],
                   ),
                 ),

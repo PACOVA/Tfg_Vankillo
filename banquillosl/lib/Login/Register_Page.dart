@@ -1,9 +1,10 @@
-// ignore_for_file: prefer_const_constructors, file_names, non_constant_identifier_names, use_build_context_synchronously, avoid_print, prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, file_names, non_constant_identifier_names, use_build_context_synchronously, avoid_print, prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables, unused_element
 
 import 'package:banquillosl/Login/NuevaContrasena.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -18,15 +19,15 @@ class _RegisterPageState extends State<RegisterPage> {
   final EmailController = TextEditingController();
   final db = FirebaseFirestore.instance;
   final PasswordController = TextEditingController();
-  final ConfrimController = TextEditingController();
   final UsuarioController = TextEditingController();
-
+  bool camposCompletos = false;
   void signUserUp() async {
     showDialog(
       context: context,
       builder: (context) {
-        return const Center(
-          child: CircularProgressIndicator(),
+        return Center(
+          child: Lottie.network(
+              'https://assets1.lottiefiles.com/packages/lf20_NRU0Ze.json'),
         );
       },
     );
@@ -70,17 +71,44 @@ class _RegisterPageState extends State<RegisterPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 35.0),
       child: ElevatedButton(
-          onPressed: signUserUp,
+          onPressed: () {
+            setState(() {
+              // Actualizar el estado de los controladores de texto
+            });
+
+            if (EmailController.text.isNotEmpty &&
+                PasswordController.text.isNotEmpty &&
+                UsuarioController.text.isNotEmpty) {
+              signUserUp();
+            }
+          },
           style: ElevatedButton.styleFrom(
-            backgroundColor: Color.fromRGBO(0, 76, 126, 100),
+            backgroundColor: EmailController.text.isNotEmpty &&
+                    PasswordController.text.isNotEmpty &&
+                    UsuarioController.text.isNotEmpty
+                ? Color.fromRGBO(0, 150, 249, 1)
+                : Color.fromRGBO(0, 76, 126, 100),
             padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 100.0),
           ),
           child: Text(
             "Crear cuenta",
             style: TextStyle(
-                color: Color.fromRGBO(161, 161, 161, 100), fontSize: 20),
+              color: EmailController.text.isNotEmpty &&
+                      PasswordController.text.isNotEmpty &&
+                      UsuarioController.text.isNotEmpty
+                  ? Color.fromRGBO(255, 255, 255, 1)
+                  : Color.fromRGBO(161, 161, 161, 100),
+              fontSize: 20,
+            ),
           )),
     );
+  }
+
+  void comprobarCamposCompletos() {
+    setState(() {
+      camposCompletos =
+          PasswordController.text.isNotEmpty && EmailController.text.isNotEmpty;
+    });
   }
 
   bool _obscureText = true;
@@ -89,6 +117,9 @@ class _RegisterPageState extends State<RegisterPage> {
       padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0),
       child: TextField(
         controller: PasswordController,
+        onChanged: (value) {
+          comprobarCamposCompletos();
+        },
         style: TextStyle(color: Colors.white),
         obscureText: _obscureText,
         textAlign: TextAlign.center,
@@ -105,6 +136,46 @@ class _RegisterPageState extends State<RegisterPage> {
             icon: Icon(_obscureText ? Icons.visibility_off : Icons.visibility),
             color: Color.fromRGBO(161, 161, 161, 100),
           ),
+          filled: true,
+        ),
+      ),
+    );
+  }
+
+  Widget CampoEmail(controller) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0),
+      child: TextField(
+        controller: controller,
+        onChanged: (value) {
+          comprobarCamposCompletos();
+        },
+        style: TextStyle(color: Colors.white),
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          hintText: "Email",
+          hintStyle: TextStyle(color: Color.fromRGBO(161, 161, 161, 100)),
+          fillColor: Color.fromRGBO(37, 37, 37, 100),
+          filled: true,
+        ),
+      ),
+    );
+  }
+
+  Widget CampoUsuario(controller) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0),
+      child: TextField(
+        controller: controller,
+        onChanged: (value) {
+          comprobarCamposCompletos();
+        },
+        style: TextStyle(color: Colors.white),
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          hintText: "Nombre de Usuario",
+          hintStyle: TextStyle(color: Color.fromRGBO(161, 161, 161, 100)),
+          fillColor: Color.fromRGBO(37, 37, 37, 100),
           filled: true,
         ),
       ),
@@ -147,40 +218,6 @@ Widget Titulo() {
   return Text(
     "Vankillo SL",
     style: TextStyle(fontSize: 45, color: Colors.white),
-  );
-}
-
-Widget CampoEmail(controller) {
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0),
-    child: TextField(
-      controller: controller,
-      style: TextStyle(color: Colors.white),
-      textAlign: TextAlign.center,
-      decoration: InputDecoration(
-        hintText: "Email",
-        hintStyle: TextStyle(color: Color.fromRGBO(161, 161, 161, 100)),
-        fillColor: Color.fromRGBO(37, 37, 37, 100),
-        filled: true,
-      ),
-    ),
-  );
-}
-
-Widget CampoUsuario(controller) {
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0),
-    child: TextField(
-      controller: controller,
-      style: TextStyle(color: Colors.white),
-      textAlign: TextAlign.center,
-      decoration: InputDecoration(
-        hintText: "Nombre de Usuario",
-        hintStyle: TextStyle(color: Color.fromRGBO(161, 161, 161, 100)),
-        fillColor: Color.fromRGBO(37, 37, 37, 100),
-        filled: true,
-      ),
-    ),
   );
 }
 

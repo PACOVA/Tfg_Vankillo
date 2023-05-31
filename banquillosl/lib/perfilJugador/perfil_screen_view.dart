@@ -1,9 +1,9 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names
 
+import 'package:banquillosl/perfilJugador/mi_usuario_jugador/perfil_usuario_view.dart';
 import 'package:flutter/material.dart';
 
 import '../homeScreen/user_info_home.dart';
-import 'mi_usuario_jugador/perfil_usuario_view.dart';
 
 class PerfilJugador extends StatefulWidget {
   @override
@@ -73,7 +73,7 @@ class _PerfilJugadorState extends State<PerfilJugador>
                     controller: _tabController,
                     children: [
                       Container(
-                        color: Colors.black54,
+                        color: const Color.fromRGBO(0, 0, 0, 0.541),
                         child: PerfilUsuarioView(),
                       ),
                       Center(

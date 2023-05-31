@@ -16,7 +16,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final EmailController = TextEditingController();
-
+  bool camposCompletos = false;
   final PasswordController = TextEditingController();
 
   void signUserIn() async {
@@ -65,20 +65,41 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget BotonEntrar() {
+  void comprobarCamposCompletos() {
+    setState(() {
+      camposCompletos =
+          PasswordController.text.isNotEmpty && EmailController.text.isNotEmpty;
+    });
+  }
+
+  Widget botonEntrar() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 35.0),
       child: ElevatedButton(
-          onPressed: signUserIn,
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Color.fromRGBO(0, 76, 126, 100),
-            padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 100.0),
+        onPressed: () {
+          if (EmailController.text.isNotEmpty &&
+              PasswordController.text.isNotEmpty) {
+            signUserIn();
+          }
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: EmailController.text.isNotEmpty &&
+                  PasswordController.text.isNotEmpty
+              ? Color.fromRGBO(0, 150, 249, 1)
+              : Color.fromRGBO(0, 76, 126, 100),
+          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 100.0),
+        ),
+        child: Text(
+          "Entrar",
+          style: TextStyle(
+            color: EmailController.text.isNotEmpty &&
+                    PasswordController.text.isNotEmpty
+                ? Color.fromRGBO(255, 255, 255, 1)
+                : Color.fromRGBO(161, 161, 161, 100),
+            fontSize: 20,
           ),
-          child: Text(
-            "Entrar",
-            style: TextStyle(
-                color: Color.fromRGBO(161, 161, 161, 100), fontSize: 20),
-          )),
+        ),
+      ),
     );
   }
 
@@ -88,6 +109,9 @@ class _LoginPageState extends State<LoginPage> {
       padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0),
       child: TextField(
         controller: controller,
+        onChanged: (value) {
+          comprobarCamposCompletos();
+        },
         style: TextStyle(color: Colors.white),
         obscureText: _obscureText,
         textAlign: TextAlign.center,
@@ -104,6 +128,26 @@ class _LoginPageState extends State<LoginPage> {
             icon: Icon(_obscureText ? Icons.visibility_off : Icons.visibility),
             color: Color.fromRGBO(161, 161, 161, 100),
           ),
+          filled: true,
+        ),
+      ),
+    );
+  }
+
+  Widget CampoEmail(controller) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0),
+      child: TextField(
+        controller: controller,
+        onChanged: (value) {
+          comprobarCamposCompletos();
+        },
+        style: TextStyle(color: Colors.white),
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          hintText: "Email",
+          hintStyle: TextStyle(color: Color.fromRGBO(161, 161, 161, 100)),
+          fillColor: Color.fromRGBO(37, 37, 37, 100),
           filled: true,
         ),
       ),
@@ -134,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               CampoContrasena(PasswordController),
               OlvidadoContrasena(context),
-              BotonEntrar(),
+              botonEntrar(),
               CrearCuenta(context, widget.onTap),
             ],
           ),
@@ -148,23 +192,6 @@ Widget Titulo() {
   return Text(
     "Bankillo SL",
     style: TextStyle(fontSize: 45, color: Colors.white),
-  );
-}
-
-Widget CampoEmail(controller) {
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 5.0),
-    child: TextField(
-      controller: controller,
-      style: TextStyle(color: Colors.white),
-      textAlign: TextAlign.center,
-      decoration: InputDecoration(
-        hintText: "Email",
-        hintStyle: TextStyle(color: Color.fromRGBO(161, 161, 161, 100)),
-        fillColor: Color.fromRGBO(37, 37, 37, 100),
-        filled: true,
-      ),
-    ),
   );
 }
 

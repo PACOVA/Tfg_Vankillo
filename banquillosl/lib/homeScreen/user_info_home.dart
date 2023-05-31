@@ -1,11 +1,11 @@
 // ignore_for_file: sized_box_for_whitespace, file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, avoid_function_literals_in_foreach_calls, non_constant_identifier_names
 
 import 'package:banquillosl/Leer%20Datos/Get_Username.dart';
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 
 class UserInfoHomePage extends StatefulWidget {
   const UserInfoHomePage({super.key});
@@ -109,7 +109,6 @@ class _UserInfoHomePageState extends State<UserInfoHomePage> {
                           builder: (context, snapshot) {
                             return ListView.builder(
                               shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
                               itemCount: docId.length,
                               itemBuilder: (context, index) {
                                 return ListTile(
@@ -122,15 +121,18 @@ class _UserInfoHomePageState extends State<UserInfoHomePage> {
                       ],
                     ),
                   ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.calendar_month_outlined,
-                        size: 15,
-                        color: Colors.amber[900],
-                      ),
-                      Fecha()
-                    ],
+                  Container(
+                    margin: EdgeInsets.only(left: 15),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.calendar_month_outlined,
+                          size: 15,
+                          color: Colors.amber[900],
+                        ),
+                        Fecha()
+                      ],
+                    ),
                   )
                 ],
               ),

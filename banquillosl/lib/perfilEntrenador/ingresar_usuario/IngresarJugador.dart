@@ -69,7 +69,7 @@ class _IngresarJugadorState extends State<IngresarJugador> {
 
   final db = FirebaseFirestore.instance;
   final user = FirebaseAuth.instance;
-
+  final String targetPage = './CambiarJugador';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -139,7 +139,7 @@ class _IngresarJugadorState extends State<IngresarJugador> {
                             child: QrImageView(
                               backgroundColor:
                                   const Color.fromRGBO(255, 111, 0, 1),
-                              data: 'aa',
+                              data: targetPage,
                               version: QrVersions.auto,
                               size: 300.0,
                             ),

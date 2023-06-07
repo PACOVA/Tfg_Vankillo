@@ -1,11 +1,7 @@
-//<===||::r::u::b::e::n::>
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-
-import 'package:vankillosl/perfilJugador/mi_usuario_jugador/perfil_lista_chart_cirdular.dart';
-import 'package:vankillosl/perfilJugador/mi_usuario_jugador/table_chart.dart';
 
 import 'equipo_alineacion_lista.dart';
 

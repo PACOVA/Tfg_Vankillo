@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vankillosl/perfilJugador/perfil_screen_view.dart';
 
 import '../homeScreen/user_info_home.dart';
 import '../perfilJugador/mi_usuario_jugador/perfil_usuario_view.dart';
